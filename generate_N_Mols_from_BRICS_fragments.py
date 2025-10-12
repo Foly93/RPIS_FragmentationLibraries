@@ -26,9 +26,9 @@ def main():
 
     # Build random molecule from the BRICS fragments (up to 'maxDepth' fragments are used)
     offSwitch = 0
-    singleSMIoutput = f'{outputDirectory}/brics_{datetime.datetime.now():%Y-%m-%d_%H-%M-%S}.smi'
+    multiSMIoutput = f'{outputDirectory}/brics_{datetime.datetime.now():%Y-%m-%d_%H-%M-%S}.smi'
 
-    with open(singleSMIoutput, 'w') as outputFile:
+    with open(multiSMIoutput, 'w') as outputFile:
         for mol in tqdm(BRICS.BRICSBuild(brics_fragments,
                                     maxDepth=maxDepth, 
                                     onlyCompleteMols=True,
