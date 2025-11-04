@@ -1,0 +1,5 @@
+# Large files for ZENODO upload shall be ignored
+ECFP/ECFP_fragmentFilteredLibrary_2FragsOrMore.csv.tar.xz
+ECFP/ECFP_fragmentFilteredLibrary_3FragsOrMore.csv.tar.xz
+ECFP/ECFP_fragmentFilteredLibrary_4FragsOrMore.csv.tar.xz
+BRICS/BRICS_DB_BuiltMaxDepth_3.txt
