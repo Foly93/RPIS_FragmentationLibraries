@@ -1,0 +1,35 @@
+{
+
+  "file_list": [
+	"/zfs/s01/z01/home/lvollmers/RPIS_FragmentationLibraries/ECFP/ECFP_fragmentFilteredLibrary_10FragsOrMore.csv.tar.xz",
+
+	"/zfs/s01/z01/home/lvollmers/RPIS_FragmentationLibraries/ECFP/ECFP_fragmentFilteredLibrary_2FragsOrMore.csv.tar.xz",
+
+	"/zfs/s01/z01/home/lvollmers/RPIS_FragmentationLibraries/ECFP/ECFP_fragmentFilteredLibrary_3FragsOrMore.csv.tar.xz",
+
+	"/zfs/s01/z01/home/lvollmers/RPIS_FragmentationLibraries/ECFP/ECFP_fragmentFilteredLibrary_4FragsOrMore.csv.tar.xz",
+
+	"/zfs/s01/z01/home/lvollmers/RPIS_FragmentationLibraries/ECFP/ECFP_fragmentFilteredLibrary_5FragsOrMore.csv.tar.xz",
+
+	"/zfs/s01/z01/home/lvollmers/RPIS_FragmentationLibraries/ECFP/ECFP_fragmentFilteredLibrary_6FragsOrMore.csv.tar.xz",
+
+	"/zfs/s01/z01/home/lvollmers/RPIS_FragmentationLibraries/ECFP/ECFP_fragmentFilteredLibrary_7FragsOrMore.csv.tar.xz",
+
+	"/zfs/s01/z01/home/lvollmers/RPIS_FragmentationLibraries/ECFP/ECFP_fragmentFilteredLibrary_8FragsOrMore.csv.tar.xz",
+
+	"/zfs/s01/z01/home/lvollmers/RPIS_FragmentationLibraries/ECFP/ECFP_fragmentFilteredLibrary_9FragsOrMore.csv.tar.xz",
+
+	"/zfs/s01/z01/home/lvollmers/RPIS_FragmentationLibraries/BRICS/BRICS_DB_BuiltMaxDepth_3.txt"
+
+  ],
+
+  "title": "RPIS_FragmentationLibraries: Molecular Fragments Useful for Design of Molecular Glues for Protein-RNA complexes",
+
+  "author": "Luis Vollmers",
+
+  "author_affiliation": "Technical University of Munich",
+  
+  "description_file": "description.md"
+
+}
+
