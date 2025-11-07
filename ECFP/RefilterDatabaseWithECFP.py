@@ -4,9 +4,14 @@ from tqdm import tqdm
 from rdkit import Chem
 
 def main():
-    T38DrugDB_smiles = pd.read_csv("../../03-localCompoundDB/T38DrugDB.csv").iloc[:,0]
-    fragment_smiles = list(pd.read_csv("../_output/DAT/MMGBSA_ChemicalAnalysisFragments_cutoff10_ranked_datatable_3orMore.csv",index_col=0)['SMILES'])
+    # Load sample data base for showcasing filtering functionality
+    T38DrugDB_smiles = pd.read_csv("./sampleDB.csv").iloc[:,0]
+    # fragments are stored in the csv file available from ZENODO
+    fragment_smiles = list(pd.read_csv("./MMGBSA_ChemicalAnalysisFragments_cutoff10_ranked_datatable_3orMore.csv",index_col=0)['SMILES'])
+    # Only use first 43 fragments for filtering (ignore the 957 lower scored fragments)
     fragments = [Chem.MolFromSmiles(smi,sanitize=False) for smi in fragment_smiles[:43] if Chem.MolFromSmiles(smi,sanitize=False)]
+
+    # Remainder of the executable ensures correct aromaticity, and the double counting of subfragments within superfragments
     fragmentHasFragmentsList = create_super_sub_fragment_matrix(fragments)
     
     mol_arom_super_frag_ids = []
@@ -30,7 +35,7 @@ def main():
 
 def save_compound_library(mol_arom_super_frag_smis, mol_arom_super_frag_ids, molFragCounts, fragments, fragment_min=2, fileName=None):
     if not fileName:
-        fileName = f'../_output/ECFP_fragmentFilteredLibrary_{fragment_min}FragsOrMore.csv'
+        fileName = f'./ECFP_fragmentFilteredLibrary_{fragment_min}FragsOrMore.csv'
     mol_smiles = mol_arom_super_frag_smis[np.where(molFragCounts >= fragment_min)[0]]
     frag_smiles = [[Chem.MolToSmiles(mol) for mol in np.array(fragments)[frag_id]] for frag_id in mol_arom_super_frag_ids if frag_id.size >= fragment_min]
     print(f'saving SMILES to files for Compounds with at least {fragment_min} fragments')
