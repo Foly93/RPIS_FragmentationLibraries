@@ -74,7 +74,7 @@ python generate_N_Mols_from_BRICS_fragments.py \
     --scrambleReagents True \
     --outputDirectory ../trash
 ```
-Finally, the [Zenodo upload](doi.org/10.5281/zenodo.17527390) also contains ```BRICS_DB_BuiltMaxDepth_3.txt``` a data base that contains all possible combinations for maxDepth set to 3. This file contains 3,878,955 compound SMILES strings which is slightly less that the theoretically possible $213*213*213 = 9,663,597$ which results from incompatibilities between some BRICS fragments.
+Finally, the [Zenodo upload](doi.org/10.5281/zenodo.17527390) also contains ```BRICS_DB_BuiltMaxDepth_3.txt``` a data base that contains all possible combinations for maxDepth set to 3. This file contains 3,878,955 compound SMILES strings which is slightly less that the theoretically possible $ 213*213*213 = 9,663,597 $ which results from incompatibilities between some BRICS fragments.
 
 ## Directory Structure 
 ```
