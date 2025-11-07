@@ -1,4 +1,4 @@
 # Large files for ZENODO upload shall be ignored
 *.csv.tar.xz
-.ipynb_checkpoints
+*.ipynb_checkpoints
 BRICS/BRICS_DB_BuiltMaxDepth_3.txt
