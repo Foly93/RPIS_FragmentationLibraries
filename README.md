@@ -5,23 +5,55 @@ The database lives at:
 - [github](github.com/Foly93/RPIS_FragmentationLibraries) (Executables and README)
 - Elsevier (Original Publication)
 
+
 ## Overview
-The provided fragment libraries contain molecular fragments in SMILES format for database filtering and de novo drug design. Extended connectivity fingerprints (ECFP) and Breaking of retrosynthatically interesting chemical substructures (BRICS) was used to compile the database.
-- 1000 most abundant ECFP derived fragments for database filtering
-- Executables showcasing the database filtering process
-- T38DrugDB filtered with 43 highest ranking fragments into 9 sub-databases with only molecules containting atleast {2,10} Fragments. Saved as tar.xz for portability
-- All 213 BRICS fragments that were decomposed from the 96 elevated stabilizer ligands found by our study
-- Executables to create random de novo compounds from the 213 BRICS fragments with variable maxDepth values
-- A 4,000,000 compounds database generated from all possible combinations of the 213 BRICS fragments with maxDepth set to 3
 
-## Usage
-The fragment libraries presented in this repository can be split into two subets. Firstly, a subset of fragments derived from ECFP and fragments derived from BRICS method. Although both approaches yield databases of SMILES strings the applications the two fragment libraries can be used for differ.
-The ECFP fragment SMILES can be used to filter existing data bases for molecular patterns that are enriched in protein-RNA interaction (RPI) stabilizers found in our in silico research.
-The BRICS fragments contain information about combinatorics as well. In this method, the RPI stabilizers' chemical bonds were broken in a retrosynthatically meaningful way via the ```rdkit.Chem.BRICS``` module. The bonds can be recombined in a way that can also be deemed retrosynthatically. Thus the BRICS fragments facilitate the assembly of compounds from fragments enriched with RPI stabilizing patterns.
-These two applications might not be the only possibilities. Generative machine learning techniques used molecular fragments to create binders, an application the ECFP fragment library is well suited for. Generally. there is a broad spectrum of applications that these fragment libraries could be used for, limited only by the creativity of the respective user.The executables that are included in the repository showcase only the intended usage of data base filtering (ECFP) and de novo compound assembly (BRICS).
+This repository consists of two primary components: **chemical compound libraries in SMILES format**, a universally recognized representation in computational molecular sciences.  
 
-### ECFP - Data base filtering
-In the ```ECFP/``` directory the executable ```RefilterDatabaseWithECFP.py``` and ```sampleDB.csv```can be found. The file that contains the fragments is called ```MMGBSA_ChemicalAnalysisFragments_cutoff10_ranked_datatable_3orMore.csv``` which is required for executing ```RefilterDatabaseWithECFP``` without error. After installing all required packages listed in the beginning of ```RefilterDatabaseWithECFP.py``` the program can be executed and should yield nine ```.csv``` files, called ```ECFP_fragmentFilteredLibrary_#N#FragsOrMore.csv```. These are only dummy files. The [Zenodo upload](doi.org/10.5281/zenodo.17527390) of this repository contains the results of the filtering applied to the [T38DrugDB](doi.org/10.5281/zenodo.17410437) which contains 34,000,000 million drug like compounds and is published elsewhere. The filtered sub-databases are saved as ```*.tar.xz``` files for portability. These database files can be used for targeted drug screening for RPI stabilizing drug candidates. This showcase can be executed in the following way:
+The fragment libraries presented here are part of a **peer-reviewed scientific study (CURRENTLY UNDER REVIEW)**. These fragments were derived through a comprehensive *in silico* workflow designed to identify promising stabilizer candidates for protein–RNA interactions (RPIs).  
+
+The workflow integrates several computational methods, including:
+
+- **Binding pocket detection and evaluation**  
+- **Molecular docking**  
+- **Molecular dynamics simulations**  
+- **Binding free energy estimations**  
+
+This pipeline yielded a set of stabilizer candidates, which were then used to generate fragment libraries through two distinct approaches:
+
+1. **Extended Connectivity Fingerprints (ECFP)** – to extract the most representative chemical features.  
+2. **Breaking of Retrosynthetically Interesting Chemical Substructures (BRICS)** – to decompose molecules into synthetically meaningful fragments.  
+
+Both approaches were implemented using Python’s [`rdkit.Chem`](https://www.rdkit.org/docs/source/rdkit.Chem.html) module and can be used for a large spectrum of different applications.
+
+---
+
+### Highlights
+
+- **1,000 most abundant ECFP-derived fragments** for compound database filtering
+- **Executable scripts** demonstrating the database filtering workflow  
+- **T38DrugDB filtered database**, organized into **9 sub-databases**, containing only molecules with at least `[2, 10]` fragment matches (provided as `.tar.xz` archives for portability)  
+- **All 213 BRICS fragments** decomposed from the 96 high-ranking stabilizer ligands identified in our study  
+- **Executables for de novo compound generation** from the 213 BRICS fragments, with adjustable `maxDepth` parameters  
+- **Comprehensive 4,000,000-compound database**, generated from all possible combinations of the 213 BRICS fragments with `maxDepth = 3`
+
+
+## Intended Usage
+
+The fragment libraries in this repository are divided into two subsets: **ECFP-derived fragments** and **BRICS-derived fragments**. Although both provide databases of SMILES strings, their intended applications differ.
+
+- **ECFP fragments** can be used to **filter existing compound databases** for molecular patterns enriched in RPI stabilizers identified through our *in silico* workflow. These fragments are particularly useful for identifying chemical motifs associated with stabilizing protein–RNA interactions.
+
+- **BRICS fragments**, on the other hand, also encode **combinatorial information**. In this method, chemical bonds of RPI stabilizers were broken in a retrosynthetically meaningful way using the `rdkit.Chem.BRICS` module. The resulting fragments can be **recombined** following the same retrosynthetic rules, enabling the **construction of new compounds** enriched with RPI-stabilizing features. These fragments can also be used for database filtering, but since they lack fragment importance scores, filtering must be done naively using all fragments.
+
+While these two applications, database filtering (ECFP) and de novo compound generation (BRICS), represent the primary intended uses, they are not the only possibilities. Generative machine learning techniques, for instance, could utilize these fragment libraries to design new potential binders, particularly leveraging the ECFP dataset.
+
+In general, the **scope of applications** for these fragment libraries is broad and limited only by the creativity of the user. The included executable scripts demonstrate the core workflows for **database filtering (ECFP)** and **de novo compound assembly (BRICS)**.
+
+### ECFP – Database Filtering
+
+Within the `ECFP/` directory, you will find the executable script `RefilterDatabaseWithECFP.py` and the example dataset `sampleDB.csv`. The fragment data required for execution is provided in the file `MMGBSA_ChemicalAnalysisFragments_cutoff10_ranked_datatable_3orMore.csv`. This file must be present to run `RefilterDatabaseWithECFP.py` without errors. After installing all required dependencies (listed at the beginning of `RefilterDatabaseWithECFP.py`), the script can be executed to produce nine `.csv` files named in the format: ECFP_fragmentFilteredLibrary_#N#FragsOrMore.csv. These files serve as example outputs. 
+The actual results of the filtering process are available in the [Zenodo upload](doi.org/10.5281/zenodo.17527390) associated with this repository. That dataset contains the results of applying the filtering procedure to the [T38DrugDB](doi.org/10.5281/zenodo.17410437), which includes approximately **34 million drug-like compounds** published elsewhere. The filtered sub-databases are provided as compressed `.tar.xz` archives for portability. These databases can be used for **targeted virtual screening** of **RPI-stabilizing drug candidates**. This example workflow can be executed as follows:
 ```bash
 # clone this repository
 git clone git@github.com:Foly93/RPIS_FragmentationLibraries.git ./
@@ -39,11 +71,23 @@ python RefilterDatabaseWithECFP.py
 ls -rtal ECFP_fragmentFilteredLibrary_*FragsOrMore.csv
 ```
 
-### BRICS - De Novo Compound Assmebly
-The ```BRICS/``` directory contains several executables serving different purposes and the BRICS fragment smiles ```RPIS_BRICS_Fragment_DB.smi```. The ```*.smi``` file contains 213 BRICS fragments that can be combined with each other to yield novel molecules via the ```rdkit.Chem.BRICS``` module. This utility is showcased in all three executables: ```BRICS_fragment_database_interactive.ipynb```, ```build_one_example_Mol_from_BRICS_fragments.py``` and ```generate_N_Mols_from_BRICS_fragments.py```. The file ```BRICS_fragment_database_interactive.ipynb``` requires a python environment with ```jupyter notebook``` installed. The notebook can then be opened and shows what the fragments look like, how to generate a random molecule assembled from the BRICS fragments and how to save it as a SMILES string. For the assembly the RDKit function ```BRICS.BRICSBuild``` is used. The options to this function are very sensitive. The option ```maxDepth``` is notworthy, since this option decides how many fragments are combined maximally. For 213 fragments the resulting combinatorics are in the order of 4e11 and should not be conducted in its entirety since this computation is likely to exceed a given timeframe.
-Next ```build_one_example_Mol_from_BRICS_fragments.py``` does exactly what it says and orients its functionality closely to the jupyter notebook. The output file generated from this executable will be identified by its timestamp.
-The last executable ```generate_N_Mols_from_BRICS_fragments.py``` generates a specified number of BRICS assemblies into one timestamp identified ```*.smi``` file. Techincally this program can be executed without command line arguments, but there are options that can be displayed via the ```-h``` flag. The resulting ```*.smi``` file can be used for virtual screening or binding affinity predictions in drug discovery endeavours.
-The showcase can be executed in the following way:
+### BRICS – De Novo Compound Assembly
+
+The ```BRICS/``` directory contains several executables that serve different purposes, as well as the BRICS fragment library ```RPIS_BRICS_Fragment_DB.smi```. This ```.smi``` file contains **213 BRICS fragments**, which can be combined to generate novel molecules using the ```rdkit.Chem.BRICS``` module. This functionality is demonstrated across three executables:
+- ```BRICS_fragment_database_interactive.ipynb```
+- ```build_one_example_Mol_from_BRICS_fragments.py```
+- ```generate_N_Mols_from_BRICS_fragments.py```
+
+The Jupyter notebook ```BRICS_fragment_database_interactive.ipynb``` requires a Python environment with ```jupyter notebook``` installed. It provides a visual and interactive overview of the fragment set, demonstrating how to:
+- Display the BRICS fragments  
+- Assemble random molecules from the fragment library  
+- Export the resulting molecules as SMILES strings  
+
+The assembly process uses the RDKit function ```BRICS.BRICSBuild```. Its parameters are highly sensitive—particularly the `maxDepth` option, which controls the maximum number of fragments combined into a single molecule. With 213 fragments available, the total combinatorial space is on the order of **4 × 10¹¹** possible assemblies, making exhaustive enumeration computationally infeasible. 
+
+The script `build_one_example_Mol_from_BRICS_fragments.py` replicates the notebook’s core functionality in a standalone Python executable. It generates a single example molecule, saving the output to a file identified by its timestamp.
+
+The final executable, `generate_N_Mols_from_BRICS_fragments.py`, creates a specified number of BRICS-assembled molecules and saves them into a timestamped `.smi` file. While it can be run without command-line arguments, optional parameters are available and can be displayed using the `-h` flag. The generated `.smi` files can be directly used for **virtual screening** or **binding affinity prediction** in **drug discovery** workflows. This showcase can be executed as follows:
 ```bash
 # clone this repository
 # not necessary if already done
@@ -97,7 +141,7 @@ RPIS_FragmentationLibraries/
 ```
 
 ## Citation
-If you use T38DrugDB in your research, please cite:
+If you use these Fragment libraries, please cite:
 ```
 [Add appropriate citation information here once available]
 ```
