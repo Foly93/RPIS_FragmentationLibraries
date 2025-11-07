@@ -84,9 +84,7 @@ The Jupyter notebook ```BRICS_fragment_database_interactive.ipynb``` requires a 
 - Export the resulting molecules as SMILES strings  
 
 The assembly process uses the RDKit function ```BRICS.BRICSBuild```. Its parameters are highly sensitive—particularly the `maxDepth` option, which controls the maximum number of fragments combined into a single molecule. With 213 fragments available, the total combinatorial space is on the order of **4 × 10¹¹** possible assemblies, making exhaustive enumeration computationally infeasible. 
-
 The script `build_one_example_Mol_from_BRICS_fragments.py` replicates the notebook’s core functionality in a standalone Python executable. It generates a single example molecule, saving the output to a file identified by its timestamp.
-
 The final executable, `generate_N_Mols_from_BRICS_fragments.py`, creates a specified number of BRICS-assembled molecules and saves them into a timestamped `.smi` file. While it can be run without command-line arguments, optional parameters are available and can be displayed using the `-h` flag. The generated `.smi` files can be directly used for **virtual screening** or **binding affinity prediction** in **drug discovery** workflows. This showcase can be executed as follows:
 ```bash
 # clone this repository
