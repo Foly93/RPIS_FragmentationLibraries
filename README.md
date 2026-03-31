@@ -141,7 +141,7 @@ RPIS_FragmentationLibraries/
 ## Citation
 If you use these Fragment libraries, please cite:
 ```
-[Add appropriate citation information here once available]
+Luis Vollmers, Shu-Yu Chen, Martin Zacharias. In Silico Analysis of Potential Stabilizer Binding Sites at Protein–RNA Interfaces. Comput Struct Biotechnol J. 2026;35:0016.DOI:10.34133/csbj.0016
 ```
 
 ## License
@@ -152,4 +152,4 @@ by/4.0/ for further information.
 For questions, issues, or contributions:
 - luis.vollmers@tum.de
 - zacharias@tum.de
-- %%%publication DOI once available
+- Publication Link: https://doi.org/10.34133/csbj.0016
