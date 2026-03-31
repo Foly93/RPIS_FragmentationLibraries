@@ -3,7 +3,7 @@
 The database lives at:
 - [Zenodo](doi.org/10.5281/zenodo.17527390) (Large Data Files)
 - [github](github.com/Foly93/RPIS_FragmentationLibraries) (Executables and README)
-- Elsevier (Original Publication)
+- [Elsevier](https://doi.org/10.34133/csbj.0016) (Original Publication)
 
 
 ## Overview
