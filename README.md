@@ -1,4 +1,5 @@
 # RPIS_FragmentationLibraries: Molecular Fragments Useful for Design of Molecular Glues for Protein-RNA Complexes
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17527390.svg)](https://doi.org/10.5281/zenodo.17527390)
 
 The database lives at:
 - [Zenodo](doi.org/10.5281/zenodo.17527390) (Large Data Files)
